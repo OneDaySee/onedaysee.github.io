@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.13.2/i18n/tr.json" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <title>Deprem Verileri</title>
@@ -121,7 +122,7 @@
             },
             processing: true,
             "language": {
-                "processing": "Veriler yükleniyor..."
+                "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
             },
             "order": [[3, "desc"]],
 
@@ -176,7 +177,7 @@
         var map;
         jsOpenMapModal = (lat, lng, mag, lokasyon) => {
             if (map != undefined) map.remove();
-            $(".modal-title").html("Deprem Lokasyonu: " + lokasyon + ", Deprem Şiddeti: " + mag );
+            $(".modal-title").html("Deprem Lokasyonu: " + lokasyon + ", Deprem Şiddeti: " + mag);
             $('#mapModal').modal('show');
             if (mag >= 4 && mag < 5.9)
                 $(".modal-backdrop").css({ "background-color": "#ffc1074d", "backdrop-filter": "blur(15px)" });
