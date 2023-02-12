@@ -78,7 +78,6 @@
         </div>
     </div>
 
-    <!-- create bootstrap id="mapModal" modal -->
     <div class="modal" id="mapModal" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -129,8 +128,6 @@
             "columns": [
                 {
                     "render": function (data, type, full, meta) {
-                        // debugger;
-                        // console.log(full.mag);
                         var span = "";
                         if (full.mag <= 3.9)
                             span = `<span class="badge rounded-pill text-bg-success"> ${full.mag}</span>`;
@@ -156,7 +153,6 @@
                 {
                     "orderable": false,
                     "render": function (data, type, full, meta) {
-                        // debugger;
                         var title = full.title.replace(' ', '_');
                         var buttons = "<div class='btn-group role='group'>";
                         buttons += "<a href='#' data-toggle='tooltip' title='Harita Üzerinde Göster' class='btn btn-warning btn-sm btn-icon btn-inline-block' data-title='mapModal' style='float:right;' onclick=jsOpenMapModal('" + full.lat + "','" + full.lng + "','" + full.mag + "',\'" + title + "'\);><i class='fas fa-map'> </i></a>";
@@ -167,7 +163,6 @@
                 },
             ],
             "rowCallback": function (row, data) {
-                // debugger;
                 if (data.mag >= 4 && data.mag < 5.9)
                     $(row).css(`background-color`, `#ffc1074d`);
                 else if (data.mag >= 5)
@@ -180,7 +175,6 @@
 
         var map;
         jsOpenMapModal = (lat, lng, mag, lokasyon) => {
-            // debugger;
             if (map != undefined) map.remove();
             $(".modal-title").html("Deprem Lokasyonu: " + lokasyon + ", Deprem Şiddeti: " + mag );
             $('#mapModal').modal('show');
