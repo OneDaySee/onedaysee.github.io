@@ -149,7 +149,7 @@
                 },
                 {
                     "render": function (data, type, full, meta) {
-                        var date =full.date.split(" ")[1];
+                        var date = full.date.split(" ")[1];
                         return date;
                     }
                 },
@@ -164,9 +164,11 @@
                 {
                     "orderable": false,
                     "render": function (data, type, full, meta) {
-                        var title = full.title.replace(' ', '_');
+                        if (full.geojson.coordinates[1] == "38.2733")
+                            debugger;
+                        var title = full.title.replaceAll(' ', '_');
                         var buttons = "<div class='btn-group role='group'>";
-                        buttons += "<a href='#' data-toggle='tooltip' title='Harita Üzerinde Göster' class='btn btn-warning btn-sm btn-icon btn-inline-block' data-title='mapModal' style='float:right;' onclick=jsOpenMapModal('" + full.geojson.coordinates[1] + "','" + full.geojson.coordinates[0] + "','" + full.mag + "',\'" + title + "'\);><i class='fas fa-map'> </i></a>";
+                        buttons += "<a href='#' data-toggle='tooltip' title='Harita Üzerinde Göster' class='btn btn-warning btn-sm btn-icon btn-inline-block' data-title='mapModal' style='float:right;' onclick=jsOpenMapModal('" + full.geojson.coordinates[1] + "','" + full.geojson.coordinates[0] + "','" + full.mag + "',\'" + title + "',\'" + "'\);><i class='fas fa-map'> </i></a>";
                         buttons += "</div>"
                         return buttons;
                     },
